@@ -3,15 +3,15 @@ import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.160.0/exampl
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
 let viewerInitialized = false;
+let scene;
+let camera;
+let renderer;
+let controls;
 
 function initViewer(){
-
 if(viewerInitialized) return;
-
 viewerInitialized = true;
-
 const viewContainer = document.getElementById("viewerArea");
-
 scene = new THREE.Scene();
 
 camera = new THREE.PerspectiveCamera(
@@ -20,24 +20,42 @@ viewContainer.clientWidth / viewContainer.clientHeight,
 0.1,
 1000
 );
-
 camera.position.set(0,1,4);
 
 renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
 renderer.setSize(viewContainer.clientWidth,viewContainer.clientHeight);
-
 viewContainer.appendChild(renderer.domElement);
 
 controls = new OrbitControls(camera, renderer.domElement);
 
 const light1 = new THREE.HemisphereLight(0xffffff,0x444444,1);
 scene.add(light1);
-
 const light2 = new THREE.DirectionalLight(0xffffff,1);
 light2.position.set(5,5,5);
 scene.add(light2);
+
+const loader = new GLTFLoader();
+let model;
+
+function loadModel(path){
+if(model){
+scene.remove(model);
+}
+loader.load(path,function(gltf){
+model = gltf.scene;
+scene.add(model);
+});
+}
+
 animate();
 }
+
+function animate(){
+requestAnimationFrame(animate);
+controls.update();
+renderer.render(scene,camera);
+}
+
 
 const models = [
 {
