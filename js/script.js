@@ -63,12 +63,6 @@ const models = [
 name:"CPU",
 description:"A 모델의 설명입니다."
 },
-
-{
-name:"B",
-description:"B 모델의 설명입니다."
-}
-
 ];
 let currentModel = 0;
 
@@ -180,17 +174,3 @@ function backToTitle()
         closeCreditList();
       }, 700);
   }
-
-// window.addEventListener("load", function(){
-
-//   let box = document.getElementById("modelBox");
-
-//   box.addEventListener("mouseenter", function(){
-//     document.body.style.overflow = "hidden";
-//   });
-
-//   box.addEventListener("mouseleave", function(){
-//     document.body.style.overflow = "auto";
-//   });
-
-// });
