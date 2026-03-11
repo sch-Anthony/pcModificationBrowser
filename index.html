@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+<meta charset="UTF-8">
+<title>pcModificationBrowser</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- Title -->
+<section id="titleScreen">
+
+<h1>PC Modification Browser</h1>
+<h3>컴퓨터 부품의 이해</h3>
+
+<div id="titleButtons">
+  <button onclick="openMain()">Main 3D Screen</button>
+  <button onclick="toggleCreditList()">Credit</button>
+</div>
+
+</section>
+
+
+<!-- main -->
+<section id="mainFeature">
+
+<button id="backButton" onclick="backToTitle()">⟪</button>
+
+<div id="mainLayout">
+
+<!-- current model name -->
+<div id="modelName">
+-
+</div>
+
+<!-- 3d area -->
+<div id="viewerArea">
+
+<div id="modelControlButton">
+
+<button onclick="prevModel()">⟨</button>
+<button onclick="nextModel()">⟩</button>
+
+</div>
+
+<!-- info panel -->
+<div id="infoPanel">
+
+<button id="infoButton" onclick="toggleInfo()">⟪</button>
+
+<h3 id="infoTitle"></h3>
+<p id="modelDescription"></p>
+
+</div>
+</section>
+
+
+<!-- credit -->
+<footer id="credit">
+
+<h2>Credit...</h2>
+
+<div id="devList">
+
+  <div class="devGroup">
+    <h4>웹 개발 및 구현</h4>
+    <p>송 치 훈</p>
+    <p>조 수 훈</p>
+    <p></p>
+  </div>
+
+  <div class="devGroup">
+    <h4>3D 모델링</h4>
+    <p>백 진 주</p>
+    <p>박 수 빈</p>
+    <p></p>
+  </div>
+
+  <div class="devGroup">
+    <h4>하드웨어 기술 조사</h4>
+    <p>한 재 민</p>
+    <p>황 수 민</p>
+    <p></p>
+  </div>
+
+  <div class="devGroup">
+    <h4>그리고</h4>
+    <h3>YOU...</h3>
+  </div>
+    
+</div>
+
+<p id="backToTitleText" onclick="backToTitle()">Close and Back To Title</p>
+
+</footer>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
