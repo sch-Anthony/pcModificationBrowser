@@ -2,57 +2,46 @@ import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.m
 import { OrbitControls } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/GLTFLoader.js";
 
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
+let viewerInitialized = false;
+
+function initViewer(){
+
+if(viewerInitialized) return;
+
+viewerInitialized = true;
 
 const viewContainer = document.getElementById("viewerArea");
-const modelScene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
+
+scene = new THREE.Scene();
+
+camera = new THREE.PerspectiveCamera(
 60,
 viewContainer.clientWidth / viewContainer.clientHeight,
 0.1,
 1000
 );
+
 camera.position.set(0,1,4);
-const renderer = new THREE.WebGLRenderer({antialias:true, alpha:true});
+
+renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});
 renderer.setSize(viewContainer.clientWidth,viewContainer.clientHeight);
 
-viewContainer.appendChild(renderer.domElement)
+viewContainer.appendChild(renderer.domElement);
+
+controls = new OrbitControls(camera, renderer.domElement);
 
 const light1 = new THREE.HemisphereLight(0xffffff,0x444444,1);
-modelScene.add(light1);
+scene.add(light1);
 
 const light2 = new THREE.DirectionalLight(0xffffff,1);
 light2.position.set(5,5,5);
-modelScene.add(light2);
-
-const loader = new GLTFLoader();
-
-let model;
-
-function loadModel(path){
-if(model){
-modelScene.remove(model);
-}
-loader.load(path,(gltf)=>{
-model = gltf.modelScene;
-modelScene.add(model);
-});
-}
-
-loadModel("./models/CPU.glb")
-
-function animate(){
-requestAnimationFrame(animate);
-controls.update();
-renderer.render(modelScene,camera);
-}
+scene.add(light2);
 animate();
+}
 
 const models = [
 {
-name:"A",
+name:"CPU",
 description:"A 모델의 설명입니다."
 },
 
@@ -84,6 +73,8 @@ function openMain()
   document.getElementById("mainFeature").style.display="flex";
   document.body.style.background="white";
     closeCreditList();
+
+    initViewer();
 
     currentModel = 0;
     updateModel();
