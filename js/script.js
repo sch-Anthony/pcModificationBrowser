@@ -8,8 +8,12 @@ let camera;
 let renderer;
 let controls;
 
+const loader = new GLTFLoader();
+let model;
+
+
 function initViewer(){
-if(viewerInitialized) return;
+if(viewerInitialized===true) return;
 viewerInitialized = true;
 const viewContainer = document.getElementById("viewerArea");
 scene = new THREE.Scene();
@@ -34,9 +38,14 @@ const light2 = new THREE.DirectionalLight(0xffffff,1);
 light2.position.set(5,5,5);
 scene.add(light2);
 
-const loader = new GLTFLoader();
-let model;
+animate();
+}
 
+function animate(){
+requestAnimationFrame(animate);
+controls.update();
+renderer.render(scene,camera);
+}
 function loadModel(path){
 if(model){
 scene.remove(model);
@@ -45,15 +54,7 @@ loader.load(path,function(gltf){
 model = gltf.scene;
 scene.add(model);
 });
-}
 
-animate();
-}
-
-function animate(){
-requestAnimationFrame(animate);
-controls.update();
-renderer.render(scene,camera);
 }
 
 
