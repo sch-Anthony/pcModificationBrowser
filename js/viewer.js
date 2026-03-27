@@ -14,7 +14,7 @@ const loader = new GLTFLoader();
 
 // model list
 const models = [
-    { name: "Kirby", description: "냠냠"},
+    { name: "Kirby", description: "냠냠, 커비는 대충 오른쪽 뒤에 있슨 만든샛기가 000으로 정렬 안한듯"},
 ];
 let currentModel = 0;
 
