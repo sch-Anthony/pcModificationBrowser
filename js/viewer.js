@@ -29,7 +29,7 @@ function initViewer() {
     
 
     scene = new THREE.Scene();
-    //scene.background = new THREE.Color(0xff0000); // 빨간 배경 임시 추가
+    //scene.background = new THREE.Color(0xff0000); // 빨간 배경 임시
     
     camera = new THREE.PerspectiveCamera(
         60, //fov
@@ -63,7 +63,7 @@ function initViewer() {
         renderer.setSize(viewContainer.clientWidth, viewContainer.clientHeight);
     });
 
-    controls.target.set(0, 0, 0);  // 카메라가 원점을 바라보도록
+    controls.target.set(0, 0, 0);  // camera facing 000
     controls.update();
 
     const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -114,12 +114,12 @@ function loadModel(path) {
     loader.load(path, function(gltf) {
     model = gltf.scene;
 
-    // sub 대신 직접 0으로 설정
+    // 씨팔이게 안될리가없는데
     const box = new THREE.Box3().setFromObject(model);
     const center = box.getCenter(new THREE.Vector3());
     model.position.set(0,0,0);
 
-    model.scale.set(10, 10, 10); // 임시로 크게
+    model.scale.set(10, 10, 10); // fuck makeit biiiiiiig
 
     scene.add(model);
     console.log(model.position);
@@ -143,14 +143,14 @@ function updateModel() {
 // title to main
 function openMain() {
 
-    // display 먼저 변경
+    // display first
     document.getElementById("titleScreen").style.display = "none";
     document.getElementById("mainFeature").style.display = "flex";
     document.body.style.background = "white";
 
     closeCreditList();
 
-    // 화면이 보인 후에 초기화
+    // reset
     requestAnimationFrame(function() {
         initViewer();
         startViewer();
@@ -173,7 +173,7 @@ function prevModel() {
 }
 
 
-// HTML onclick 및 ui.js에서 접근 가능하도록 전역 등록
+// HTML onclick 및 ui.js에서 접근 가능하도록 전역 등록   <  이게뭔소린지 아직도 모름
 window.openMain = openMain;
 window.nextModel = nextModel;
 window.prevModel = prevModel;
