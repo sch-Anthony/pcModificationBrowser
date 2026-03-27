@@ -37,7 +37,7 @@ function initViewer() {
         0.1, // nearest render range
         1000  // farest render range
     );
-    camera.position.set(-5, 1, 5);
+    camera.position.set(0, 1, 4);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(viewContainer.clientWidth, viewContainer.clientHeight);
@@ -67,6 +67,15 @@ function initViewer() {
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
     cube.scale.set(0.1,0.1,0.1);
+}
+
+function setCamera(posX,posY,posZ,facX,facY,facZ){
+  controls.target.set(facX,facY,facZ);
+  camera.position.set(posX,posY,posZ);
+}
+function resetCamera(){
+  controls.target.set(0,0,0);
+  camera.position.set(0,1,4);
 }
 
 // render (animating t/f)
@@ -143,17 +152,20 @@ function openMain() {
         startViewer();
         currentModel = 0;
         updateModel();
+        resetCamera();
     });
 }
 
 function nextModel() {
     currentModel = (currentModel + 1) % models.length;
     updateModel();
+    resetCamera();
 }
 
 function prevModel() {
     currentModel = (currentModel - 1 + models.length) % models.length;
     updateModel();
+    resetCamera();
 }
 
 
