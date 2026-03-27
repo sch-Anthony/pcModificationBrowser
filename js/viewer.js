@@ -46,12 +46,16 @@ function initViewer() {
 
     controls = new OrbitControls(camera, renderer.domElement);
 
-    const light1 = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+    const light1 = new THREE.HemisphereLight(0xffffff, 0x444444, 0.6);
     scene.add(light1);
 
-    const light2 = new THREE.DirectionalLight(0xffffff, 1);
+    const light2 = new THREE.DirectionalLight(0xffffff, 1.5);
     light2.position.set(5, 5, 5);
     scene.add(light2);
+
+    const light3 = new THREE.DirectionalLight(0xa6bed8, 0.8)
+    light3.position.set(-5,-5,-5);
+    scene.add(light3);
 
     window.addEventListener("resize", () => {
         camera.aspect = viewContainer.clientWidth / viewContainer.clientHeight;
