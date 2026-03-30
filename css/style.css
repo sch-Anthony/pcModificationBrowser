@@ -287,3 +287,24 @@ section {
     height: 100vh;
     position: relative;
 }
+
+#categoryText {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+#bigNumber {
+    position: absolute;
+    font-size: 180px;
+}
+
+#bigNumber::before {
+    content: "";
+    position: absolute;
+    background: orange;
+    z-index: -1;
+}
+
+writing-mode: vertical-rl;
+transform: rotate(180deg);
