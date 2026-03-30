@@ -47,3 +47,12 @@ function toggleInfo() {
         btn.innerHTML = "⟪";
     }
 }
+
+<!-- 여따 로직좀 만들어둠 수정 부탁드릴게요 -->
+    
+function updateDesignUI(name, number, category) {
+    document.getElementById("verticalText").innerText = name;
+    document.getElementById("bigNumber").innerText = number;
+    document.getElementById("categoryText").innerText = category;
+}
+    

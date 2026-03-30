@@ -13,8 +13,16 @@ let model;
 const loader = new GLTFLoader();
 
 // model list
+
+<!-- 여기 좀 수정함 -->
 const models = [
-    { name: "Kirby", description: "냠냠, 커비는 대충 오른쪽 뒤에 있슨 만든샛기가 000으로 정렬 안한듯"},
+    { 
+      name: "Kirby", 
+      description: "냠냠, 커비는 대충 오른쪽 뒤에 있슨 만든샛기가 000으로 정렬 안한듯",
+      uiName: "cpu",
+      uiNumber: "01",
+      category: "mechanical components"
+    },
 ];
 let currentModel = 0;
 
@@ -130,13 +138,19 @@ function loadModel(path) {
 }
 
 // UI text update + reload
+<!-- 수정했음 -->
+
 function updateModel() {
 
-    document.getElementById("modelName").innerText = models[currentModel].name;
-    document.getElementById("infoTitle").innerText = models[currentModel].name;
-    document.getElementById("modelDescription").innerText = models[currentModel].description;
+    let m = models[currentModel];
 
-    loadModel("./models/" + models[currentModel].name + ".glb");
+    document.getElementById("modelName").innerText = m.name;
+    document.getElementById("infoTitle").innerText = m.name;
+    document.getElementById("modelDescription").innerText = m.description;
+
+    updateDesignUI(m.uiName, m.uiNumber, m.category);
+
+    loadModel("./models/" + m.name + ".glb");
 }
 
 
