@@ -85,9 +85,12 @@ section {
     position: relative;
 }
 
+
 #modelName {
-    width: 60px;
-    height: 600px;
+/* 여기 수정 했어요 */
+    
+    width: 80px;
+    
 
     display: flex;
     align-items: center;
@@ -97,11 +100,11 @@ section {
     transform: rotate(180deg);
 
     background: white;
-    font-size: 20px;
+    font-size: 28px;
 
     border-radius: 8px;
     margin-left: 15px;
-    letter-spacing: 5px;
+    letter-spacing: 8px;
     font-weight: bold;
 }
 
@@ -181,6 +184,32 @@ section {
     right: 0;
 }
 
+/* 상단 배너 추가 */
+#topBanner {
+    position: absolute;
+    top: 40px;
+    left: 120px;
+
+    width: 400px;
+    height: 100px;
+    background: orange;
+
+    display: flex;
+    align-items: center;
+    padding: 20px;
+}
+
+#categoryText {
+    position: absolute;
+    top: -20px;
+    color: white;
+}
+
+#bigNumber {
+    font-size: 90px;
+    color: white;
+    margin-left: auto;
+}
 
 #credit {
     display: none;
