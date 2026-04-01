@@ -13,9 +13,16 @@ let model;
 const loader = new GLTFLoader();
 
 // model list
+// 모듈 조금 수정 했어요
 const models = [
-    { name: "Kirby", description: "냠냠, 커비는 대충 오른쪽 뒤에 있슨 만든샛기가 000으로 정렬 안한듯"},
+    {
+        name: "CPU",
+        file: "cpu.glb",
+        category: "mechanical components",
+        parts: ["코어", "캐시", "클럭"]
+    },
 ];
+
 let currentModel = 0;
 
 
@@ -130,9 +137,15 @@ function loadModel(path) {
 }
 
 // UI text update + reload
+// 추가+ 수정
 function updateModel() {
 
-    document.getElementById("modelName").innerText = models[currentModel].name;
+     let data = models[currentModel];
+    
+    document.getElementById("modelName").innerText = data.name;
+    document.getElementById("categoryText").innerText = data.category;
+    document.getElementById("bigNumber").innerText = "0" + (currentModel + 1);
+    
     document.getElementById("infoTitle").innerText = models[currentModel].name;
     document.getElementById("modelDescription").innerText = models[currentModel].description;
 
