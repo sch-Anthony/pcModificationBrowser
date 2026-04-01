@@ -19,6 +19,7 @@ const models = [
         name: "CPU",
         file: "cpu.glb",
         category: "mechanical components",
+        description: "컴퓨터의 두뇌 역할을 하는 핵심 부품",
         parts: ["코어", "캐시", "클럭"]
     },
 ];
@@ -146,8 +147,9 @@ function updateModel() {
     document.getElementById("categoryText").innerText = data.category;
     document.getElementById("bigNumber").innerText = "0" + (currentModel + 1);
     
-    document.getElementById("infoTitle").innerText = models[currentModel].name;
-    document.getElementById("modelDescription").innerText = models[currentModel].description;
+    document.getElementById("infoTitle").innerText = data.name;
+    document.getElementById("infoList").innerHTML =
+    "<p>" + data.description + "</p>";
 
     loadModel("./models/" + models[currentModel].name + ".glb");
 }
