@@ -87,25 +87,33 @@ section {
 
 
 #modelName {
-/* 여기 수정 했어요 */
-    
-    width: 80px;
-    
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    /* 위치 조정 했어요 */
+    
+    position: absolute;
+
+    left: 20px;
+    top: 120px; 
+
+    width: 100px;
+    height: 500px;
 
     writing-mode: vertical-rl;
     transform: rotate(180deg);
 
     background: white;
-    font-size: 28px;
 
-    border-radius: 8px;
-    margin-left: 15px;
-    letter-spacing: 8px;
+    font-size: 50px; 
     font-weight: bold;
+    letter-spacing: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 12px;
+
+    z-index: 10; 
 }
 
 #viewerArea {
@@ -189,7 +197,8 @@ section {
     position: absolute;
     top: 40px;
     left: 120px;
-
+    z-index: 5;
+    
     width: 400px;
     height: 100px;
     background: orange;
