@@ -100,54 +100,85 @@ html, body {
     overflow: hidden;
 }
 
-/* 미래형 라인 */
-
 /* =========================
-   상단 HUD 라인
+   상단 HUD 프레임 라인
 ========================= */
 
 #hudTopLine {
     position: absolute;
 
     top: 32px;
-    left: 330px;
+    left: 310px;
 
     width: 72%;
-    height: 1px;
+    height: 80px;
 
-    background: rgba(255,255,255,0.5);
+    pointer-events: none;
 }
+
+/* 메인 긴 선 */
 
 #hudTopLine::before {
     content: "";
 
     position: absolute;
 
-    left: -70px;
     top: 0;
+    left: 0;
 
-    width: 55px;
+    width: 88%;
     height: 1px;
 
-    background: rgba(255,255,255,0.3);
-
-    transform: rotate(-25deg);
+    background: rgba(255,255,255,0.55);
 }
+
+/* 좌측 기울기 */
 
 #hudTopLine::after {
     content: "";
 
     position: absolute;
 
-    right: -40px;
-    top: 0;
+    top: 12px;
+    left: -58px;
 
-    width: 40px;
+    width: 70px;
     height: 1px;
 
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.45);
 
-    transform: rotate(25deg);
+    transform: rotate(-32deg);
+}
+
+/* 우측 꺾이는 선 */
+
+#hudTopCorner {
+    position: absolute;
+
+    top: 32px;
+    right: 85px;
+
+    width: 120px;
+    height: 70px;
+
+    border-top: 1px solid rgba(255,255,255,0.55);
+    border-right: 1px solid rgba(255,255,255,0.55);
+}
+
+/* 우측 아래 짧은 선 */
+
+#hudTopCorner::after {
+    content: "";
+
+    position: absolute;
+
+    right: -1px;
+    bottom: 0;
+
+    width: 45px;
+    height: 1px;
+
+    background: rgba(255,255,255,0.45);
 }
 
 /* =========================
@@ -647,8 +678,6 @@ html, body {
     background: rgba(255,255,255,0.7);
 }
 
-    transform: rotate(-90deg);
-}
 /* =========================
    우측 배터리 HUD
 ========================= */
