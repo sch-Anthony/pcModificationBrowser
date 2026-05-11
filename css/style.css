@@ -144,7 +144,8 @@ html, body {
 
 #topBanner {
     position: absolute;
-    top: 55px;
+
+    top: 120px;   
     left: 0;
 
     width: 310px;
@@ -171,16 +172,21 @@ html, body {
     letter-spacing: 1px;
 }
 
+
 #bigNumber {
     position: absolute;
-    right: 10px;
-    top: -8px;
+
+    right: -18px;
+    top: -15px;
 
     font-size: 150px;
+
     font-weight: 200;
     color: white;
 
     opacity: 0.95;
+
+    line-height: 1;
 }
 
 /* =========================
@@ -190,7 +196,7 @@ html, body {
 #modelName {
     position: absolute;
 
-    top: 50px;
+    top: 65px;   
     left: 20px;
 
     writing-mode: vertical-rl;
