@@ -771,3 +771,24 @@ html, body {
 
     background: rgba(255,255,255,0.7);
 }
+/* =========================
+   좌측 하단 HUD 막대
+========================= */
+
+#leftBottomHud {
+    position: absolute;
+
+    left: 1000px;
+    bottom: -480px;
+
+    width: 1px;
+    height: 1000px;
+
+    background: rgba(255,255,255,0.7);
+
+    
+    transform: rotate(-270deg);
+}
+
+/* 위 짧은 가로선 */
+
