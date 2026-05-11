@@ -102,30 +102,138 @@ html, body {
 
 /* 미래형 라인 */
 
-#mainFeature::before {
-    content: "";
+/* =========================
+   상단 HUD 라인
+========================= */
 
+#hudTopLine {
     position: absolute;
-    top: 25px;
-    left: 360px;
 
-    width: calc(100% - 420px);
+    top: 32px;
+    left: 330px;
+
+    width: 72%;
     height: 1px;
 
-    background: rgba(255,255,255,0.45);
+    background: rgba(255,255,255,0.5);
 }
 
-#mainFeature::after {
+#hudTopLine::before {
     content: "";
 
     position: absolute;
+
+    left: -70px;
+    top: 0;
+
+    width: 55px;
+    height: 1px;
+
+    background: rgba(255,255,255,0.3);
+
+    transform: rotate(-25deg);
+}
+
+#hudTopLine::after {
+    content: "";
+
+    position: absolute;
+
+    right: -40px;
+    top: 0;
+
+    width: 40px;
+    height: 1px;
+
+    background: rgba(255,255,255,0.3);
+
+    transform: rotate(25deg);
+}
+
+/* =========================
+   우측 세로 라인
+========================= */
+
+#hudRightLine {
+    position: absolute;
+
     right: 70px;
     top: 0;
 
     width: 1px;
     height: 100%;
 
-    background: rgba(255,255,255,0.25);
+    background:
+    linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+    );
+}
+
+/* =========================
+   우측 상단 기울어진 선
+========================= */
+
+#topDiagonal {
+    position: absolute;
+
+    top: 100px;
+    right: 130px;
+
+    width: 220px;
+    height: 1px;
+
+    background: rgba(255,255,255,0.7);
+
+    transform: rotate(-17deg);
+}
+
+/* =========================
+   우측 십자가
+========================= */
+
+#crossHud {
+    position: absolute;
+
+    right: 210px;
+    top: 210px;
+
+    width: 28px;
+    height: 28px;
+}
+
+#crossHud::before {
+    content: "";
+
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: rgba(255,255,255,0.8);
+
+    transform: translateY(-50%);
+}
+
+#crossHud::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+
+    background: rgba(255,255,255,0.8);
+
+    transform: translateX(-50%);
 }
 
 /* =========================
@@ -472,6 +580,9 @@ html, body {
     letter-spacing: 2px;
 
     color: rgba(255,255,255,0.7);
+
+   transform: rotate(-90deg);
+}
 
    /* =========================
    우측 배터리 HUD
