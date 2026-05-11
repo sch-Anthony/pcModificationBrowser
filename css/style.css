@@ -538,3 +538,65 @@ html, body {
 
     transform: rotate(-90deg);
 }
+/* =========================
+   우측 배터리 HUD
+========================= */
+
+#batteryHud {
+    position: absolute;
+
+    right: 85px;
+    bottom: 15px;
+
+    width: 60px;
+    height: 210px;
+
+    border: 2px solid rgba(255,255,255,0.75);
+
+    z-index: 20;
+}
+
+/* 내부 사선 패턴 */
+
+#batteryHud::before {
+    content: "";
+
+    position: absolute;
+
+    left: 3px;
+    bottom: 8px;
+
+    width: 50px;
+    height: 120px;
+
+    background:
+    repeating-linear-gradient(
+        -35deg,
+
+        white 0px,
+        white 6px,
+
+        transparent 6px,
+        transparent 12px
+    );
+
+    opacity: 0.9;
+}
+
+/* 위 작은 선 */
+
+#batteryHud::after {
+    content: "";
+
+    position: absolute;
+
+    top: -18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 2px;
+    height: 18px;
+
+    background: rgba(255,255,255,0.7);
+}
