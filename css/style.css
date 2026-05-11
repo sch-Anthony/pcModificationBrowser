@@ -433,31 +433,108 @@ html, body {
 #barcode {
     position: absolute;
 
-    top: 250px;
     left: 45px;
+    top: 270px;
 
-    width: 35px;
-    height: 320px;
+    width: 40px;
+    height: 300px;
+
+    z-index: 30;
 
     opacity: 0.9;
 
     background:
     repeating-linear-gradient(
-        까지 bottom,
+        to bottom,
 
         white 0px,
-        white 3px,
+        white 4px,
 
-        transparent 3px,
-        transparent 6px,
+        transparent 4px,
+        transparent 7px,
 
-        white 6px,
-        white 8px,
+        white 7px,
+        white 9px,
 
-        transparent 8px,
-        transparent 13px
+        transparent 9px,
+        transparent 15px
     );
+}
+#barcode::after {
+    content: "01-CPU-2026";
 
-    z-index: 2;
+    position: absolute;
+
+    top: 310px;
+    left: -18px;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,0.7);
+
+   /* =========================
+   우측 배터리 HUD
+========================= */
+
+#batteryHud {
+    position: absolute;
+
+    right: 28px;
+    bottom: 80px;
+
+    width: 46px;
+    height: 210px;
+
+    border: 2px solid rgba(255,255,255,0.75);
+
+    z-index: 20;
 }
 
+/* 내부 사선 패턴 */
+
+#batteryHud::before {
+    content: "";
+
+    position: absolute;
+
+    left: 6px;
+    bottom: 8px;
+
+    width: 34px;
+    height: 120px;
+
+    background:
+    repeating-linear-gradient(
+        -35deg,
+
+        white 0px,
+        white 6px,
+
+        transparent 6px,
+        transparent 12px
+    );
+
+    opacity: 0.9;
+}
+
+/* 위 작은 선 */
+
+#batteryHud::after {
+    content: "";
+
+    position: absolute;
+
+    top: -18px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 2px;
+    height: 18px;
+
+    background: rgba(255,255,255,0.7);
+}
+
+    transform: rotate(-90deg);
+}
