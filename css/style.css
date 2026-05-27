@@ -161,11 +161,35 @@ html, body {
     transform-origin: right center;
 }
 
+.horizontall {
+    position: absolute;
+
+    top: -189px;
+    right: -37px;
+
+    width: 350px;
+    height: 1px;
+
+    background: rgba(255,255,255,0.5);
+}
+
+hudRightLine.{
+    position: absolute;
+
+    right: 60px;
+    top: 0;
+
+    width: 1px;
+    height: 100%;
+
+    background: rgba(255,255,255,0.5);
+}
+
 .hudCross {
     position: absolute;
 
-    top: -200px;
-    right: 40px;
+    top: -255px;
+    right: -1px;
 
     width: 28px;
     height: 28px;
@@ -195,15 +219,15 @@ html, body {
     width: 1px;
     height: 100%;
 }
-
+ 
 #hudRightLine {
     position: absolute;
 
-    right: 70px;
+    right: 115px;
     top: 0;
 
     width: 1px;
-    height: 100%;
+    height: 500px;
 
     background:
     linear-gradient(
